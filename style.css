@@ -1,0 +1,161 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+p, h2, h3 {
+    color: white;
+}
+
+span {
+    color: brown;
+}
+
+body {
+    display: grid;
+    grid-template-columns: 20% 80%;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+    "header header"
+    "side main"
+    "footer footer";
+    background-color: black;
+}
+
+header {
+    grid-area: header;
+    padding: 2rem;
+    text-align: center;
+    letter-spacing: 2px;
+    position: sticky;
+    top: 0;
+    background-color: aliceblue;
+}
+
+aside {
+    grid-area: side;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    padding: 2rem;
+    background-color: rgb(51, 49, 49);
+    position: sticky;
+    top: 101px;
+    height: calc(100vh - 101px);
+}
+
+main {
+    grid-area: main;
+    text-align: center;
+    min-height: 90vh;
+}
+
+main h2 {
+    padding: 2rem;
+}
+
+footer {
+    grid-area: footer;
+    padding: 1rem;
+    text-align: center;
+    background-color: aliceblue;
+}
+
+footer p {
+    color: black;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    letter-spacing: 2px;
+}
+
+.nav-links li {
+    list-style-type: none;
+    margin-bottom: 2rem;
+}
+
+.sub-btn a {
+    text-decoration: none;
+    color: white;
+}
+
+.sub-btn {
+    padding: 1rem;
+    border: none;
+    border-radius: 10px;
+    background-color: brown;
+}
+
+.logo {
+    letter-spacing: 3px;
+}
+
+/* Tablet view */
+@media (max-width: 1024px) {
+    body {
+        grid-template-columns: 25% 75%;
+    }
+
+    aside {
+        padding: 1rem;
+    }
+
+    .nav-links li {
+        margin-bottom: 1rem;
+    }
+}
+
+/* Mobile view */
+@media (max-width: 768px) {
+    body {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+        "header"
+        "side"
+        "main"
+        "footer";
+    }
+
+    aside {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+        top: 0;
+        height: auto;
+        padding: 1rem;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 1rem;
+    }
+
+    .nav-links li {
+        margin-bottom: 0;
+    }
+
+    .sub-btn {
+        padding: 0.5rem 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.2rem;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    aside {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
